@@ -1,0 +1,29 @@
+@import "tailwindcss"; /* <--- THIS IS THE KEY CHANGE for Tailwind v4 */
+
+/* Custom CSS variables for fonts, pulled from next/font */
+:root {
+  --font-inter: var(--font-inter);
+  --font-playfair-display: var(--font-playfair-display);
+}
+
+/* Apply default font family from inter.variable */
+body {
+  font-family: var(--font-inter);
+  @apply text-gray-800;
+}
+
+/* Apply a different font for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair-display);
+  @apply text-gray-900;
+}
+
+/* Reusable container for consistent layout */
+.container {
+  @apply mx-auto px-4 max-w-screen-xl;
+}
+
+/* Custom button styling (using Tailwind for base) */
+.btn-primary {
+  @apply inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200;
+}
