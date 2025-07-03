@@ -7,9 +7,11 @@ export const guestHouseInfo = {
     address: "123 Peace Street, Bole, Addis Ababa, Ethiopia",
     phone: "+251 912 345 678",
     email: "info@serenityretreat.com",
-    social: {
-      facebook: "https://facebook.com/serenityretreat",
-      instagram: "https://instagram.com/serenityretreat",
+      social: {
+        facebook: "https://www.facebook.com/serenityretreat",
+        instagram: "https://www.instagram.com/serenityretreat",
+        linkedin: "https://www.linkedin.com/company/serenityretreat", // Add this line
+        twitter: "https://twitter.com/serenityretreat",
     },
-    mainBanner: "/images/general/main-banner.jpg", // Path to an image in public/images/general
+    mainBanner: "/images/general/main-banner.jpg",
   };

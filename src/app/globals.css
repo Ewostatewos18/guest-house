@@ -1,29 +1,102 @@
-@import "tailwindcss"; /* <--- THIS IS THE KEY CHANGE for Tailwind v4 */
+/* src/app/globals.css */
 
-/* Custom CSS variables for fonts, pulled from next/font */
-:root {
-  --font-inter: var(--font-inter);
-  --font-playfair-display: var(--font-playfair-display);
-}
+/*
+ * Import Tailwind CSS. In v4, this single import handles base, components, and utilities.
+ * Ensure your tailwind.config.js is correctly set up for color palette and other configurations.
+ */
+ @import "tailwindcss";
 
-/* Apply default font family from inter.variable */
-body {
-  font-family: var(--font-inter);
-  @apply text-gray-800;
-}
-
-/* Apply a different font for headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair-display);
-  @apply text-gray-900;
-}
-
-/* Reusable container for consistent layout */
-.container {
-  @apply mx-auto px-4 max-w-screen-xl;
-}
-
-/* Custom button styling (using Tailwind for base) */
-.btn-primary {
-  @apply inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200;
-}
+ /*
+  * Define CSS variables for fonts, typically pulled from next/font.
+  * These are essential if you're using `var(--font-inter)` or `var(--font-playfair-display)`
+  * in your components or other CSS.
+  */
+ :root {
+   --font-inter: var(--font-inter); /* Placeholder, `next/font` will inject actual values */
+   --font-playfair-display: var(--font-playfair-display); /* Placeholder */
+ }
+ 
+ /*
+  * Base styling for the body.
+  * Applies default font, a subtle background, and text color for overall page.
+  */
+ body {
+   font-family: var(--font-inter);
+   /* Apply neutral background and darker text for a premium feel */
+   @apply text-neutral-800 bg-neutral-50;
+   line-height: 1.7; /* Improve readability */
+   -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+   -moz-osx-font-smoothing: grayscale; /* Smoother text rendering */
+ }
+ 
+ /*
+  * Styling for headings (h1-h6).
+  * Applies the 'Playfair Display' font.
+  * IMPORTANT: The `@apply text-neutral-900;` line was removed from here
+  * because it was overriding specific text colors applied directly to h3 elements
+  * in your components (like the footer). Now, specific text colors (e.g., text-amber-400)
+  * applied in JSX will take precedence.
+  */
+ h1, h2, h3, h4, h5, h6 {
+   font-family: var(--font-playfair-display);
+   /* Removed global color override: @apply text-neutral-900; */
+   line-height: 1.2;
+ }
+ 
+ /*
+  * Reusable container for consistent layout across the site.
+  * Centered with horizontal padding and a max-width.
+  */
+ .container {
+   @apply mx-auto px-4 max-w-screen-xl;
+ }
+ 
+ /*
+  * Custom button styling for a luxurious feel, using an amber theme for primary actions.
+  */
+ .btn-primary {
+   @apply inline-block bg-amber-700 text-white px-8 py-3 rounded-full shadow-lg hover:bg-amber-800 transition-all duration-300 ease-in-out font-semibold text-lg tracking-wide;
+ }
+ 
+ /*
+  * Secondary button style for alternative actions.
+  */
+ .btn-secondary {
+   @apply inline-block bg-neutral-800 text-white px-8 py-3 rounded-full shadow-lg hover:bg-neutral-900 transition-all duration-300 ease-in-out font-semibold text-lg tracking-wide;
+ }
+ 
+ /*
+  * Base styling for card-like elements, offering a subtle visual elevation.
+  */
+ .card-base {
+   @apply bg-white rounded-lg shadow-md p-8 transform transition-transform duration-300 hover:scale-[1.005] hover:shadow-xl;
+ }
+ 
+ /*
+  * Specific styling for Material Symbols icons, ensuring correct rendering.
+  * Ensure you've linked the Material Symbols stylesheet in your root layout.
+  */
+ .material-symbols-outlined {
+   font-variation-settings:
+   'FILL' 0,
+   'wght' 400, /* Good default weight */
+   'GRAD' 0,
+   'opsz' 24; /* Base optical size */
+ }
+ 
+ /*
+  * Basic animation definition for a fade-in-up effect.
+  */
+ @keyframes fadeInUp {
+   from {
+     opacity: 0;
+     transform: translateY(20px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+ .animate-fade-in-up {
+   animation: fadeInUp 0.8s ease-out forwards;
+ }

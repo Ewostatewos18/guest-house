@@ -1,50 +1,47 @@
-// src/components/Navbar.tsx (After Fix)
+// src/components/Navbar.tsx
 import Link from 'next/link';
-import Image from 'next/image'; // For potential logo
 
 export default function Navbar() {
   return (
-    <nav className="bg-white shadow-md p-4">
+    <nav className="bg-neutral-900 text-white shadow-lg p-4 sticky top-0 z-50"> {/* Darker background for premium feel */}
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo or Site Title */}
         <Link
           href="/"
-          className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+          className="text-3xl font-bold text-amber-300 hover:text-amber-200 transition-colors font-playfair-display" // Gold accent for logo
         >
-          {/* Example: If you have a logo image */}
-          {/* <Image src="/images/logo.png" alt="Serenity Retreat Logo" width={150} height={40} /> */}
           Serenity Retreat
         </Link>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-8">
           <Link
             href="/"
-            className="text-lg text-gray-700 hover:text-blue-600 transition-colors"
+            className="text-lg text-neutral-300 hover:text-amber-200 transition-colors font-medium"
           >
             Home
           </Link>
           <Link
             href="/rooms"
-            className="text-lg text-gray-700 hover:text-blue-600 transition-colors"
+            className="text-lg text-neutral-300 hover:text-amber-200 transition-colors font-medium"
           >
             Rooms
           </Link>
           <Link
             href="/amenities"
-            className="text-lg text-gray-700 hover:text-blue-600 transition-colors"
+            className="text-lg text-neutral-300 hover:text-amber-200 transition-colors font-medium"
           >
             Amenities
           </Link>
           <Link
             href="/about"
-            className="text-lg text-gray-700 hover:text-blue-600 transition-colors"
+            className="text-lg text-neutral-300 hover:text-amber-200 transition-colors font-medium"
           >
             About Us
           </Link>
           <Link
             href="/contact"
-            className="text-lg text-gray-700 hover:text-blue-600 transition-colors"
+            className="text-lg text-neutral-300 hover:text-amber-200 transition-colors font-medium"
           >
             Contact
           </Link>
@@ -53,14 +50,14 @@ export default function Navbar() {
         {/* Book Now Button */}
         <Link
           href="/book"
-          className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+          className="btn-primary" // Using the new primary button style (amber)
         >
           Book Now
         </Link>
 
-        {/* Mobile Menu Button (Optional, for responsive design) */}
+        {/* Mobile Menu Button (You can implement this later if needed) */}
         {/* <div className="md:hidden">
-          <button className="text-gray-700 hover:text-blue-600 focus:outline-none">
+          <button className="text-neutral-300 hover:text-amber-200 focus:outline-none">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
